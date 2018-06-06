@@ -1,0 +1,148 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+#container {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+}
+
+#header {
+    position: fixed;
+    height: 50px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #eeeee2;
+    padding: 0;
+}
+
+#header h1 {
+    color: #000000;
+    font-family: "Droid Sans", sans-serif;
+}
+
+#canvas {
+    position: relative;
+    background-color: #ffffff;
+    overflow: auto;
+    zoom: 1;
+    margin: 0;
+    top: 10;
+    left: 50;
+    bottom: -10;
+    right: -10;
+    padding: 10px;
+}
+
+#deraTerm {
+    position: fixed;
+    overflow: hidden;
+    border: 1px solid #ccb;
+    padding-left: 0px;
+    opacity: 0.85;
+    filter: alpha(opacity = "85");
+}
+
+#deraTerm * {
+    font-family: "Droid Sans Mono", monospace;
+    font-size: small;
+}
+
+#logButton, #termButton {
+    width: 44px;
+    height: 44px;
+    opacity: 0.4;
+    filter: alpha(opacity = "40");
+    position: fixed;
+    display: none;
+    border: 0;
+    text-indent: -9999px;
+}
+
+#logButton {
+    top: 10px;
+    right: 50px;
+    background: url('../img/log-files-icon.png') no-repeat;
+}
+
+#termButton {
+    top: 10px;
+    right: 5px;
+    background: url('../img/icon_new_window.gif') no-repeat;
+}
+
+#termButton:hover, #logButton:hover {
+    opacity: 0.8;
+    filter: alpha(opacity = "80");
+}
+
+/* Pop-up menu */
+body div.mxPopupMenu {
+    -webkit-box-shadow: 3px 3px 6px #C0C0C0;
+    -moz-box-shadow: 3px 3px 6px #C0C0C0;
+    box-shadow: 3px 3px 6px #C0C0C0;
+    background: white;
+    position: absolute;
+    border: 3px solid #e7e7e7;
+    padding: 3px;
+}
+
+body table.mxPopupMenu {
+    border-collapse: collapse;
+    margin: 0px;
+}
+
+body tr.mxPopupMenuItem {
+    color: black;
+    cursor: default;
+}
+
+body td.mxPopupMenuItem {
+    padding: 6px 60px 6px 30px;
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+body td.mxPopupMenuIcon {
+    background-color: white;
+    padding: 0px;
+}
+
+body tr.mxPopupMenuItemHover {
+    background-color: #eeeeee;
+    color: black;
+}
+
+table.mxPopupMenu hr {
+    border-top: solid 1px #cccccc;
+}
+
+table.mxPopupMenu tr {
+    font-size: 4pt;
+}
+
+.mxWindowPane div {
+    font-family: "Droid Sans Mono", monospace;
+    font-size: 10px;
+}

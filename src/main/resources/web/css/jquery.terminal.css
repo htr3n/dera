@@ -1,0 +1,82 @@
+/**
+ * @file jquery.terminal.css
+ * @brief Embedded terminal
+ * @author Jonathan Giroux (Bloutiouf)
+ * @site https://github.com/Bloutiouf/jquery.terminal
+ * @version 2.5
+ * @license MIT license <http://www.opensource.org/licenses/MIT>
+ *
+ * Terminal style: white text on black background.
+ */
+
+.jqueryTerminal {
+    color: #000000;
+    background-color: #ffffff;
+    font-size: 11px;
+    font-family: 'Droid Sans Mono', monospace !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.jqueryTerminal * {
+    color: #fff;
+    background-color: #000;
+    font-size: 11px !important;
+    font-family: 'Droid Sans Mono', monospace !important;
+    padding: 0;
+    margin: 0;
+}
+
+.jqueryTerminal > .content, .jqueryTerminal > .popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    font-size: 11px !important;
+    font-family: 'Droid Sans Mono', monospace !important;
+}
+
+.content {
+    position: relative !important;
+    width: 100%;
+    height: 100%;
+    resize: both;
+}
+
+.jqueryTerminal > .popup {
+    border: 1px solid white;
+    background-color: #444444;
+    padding: 4px;
+    display: none;
+}
+
+.jqueryTerminal > .scrollarrow, .jqueryTerminal > .scrollbar {
+    position: absolute;
+    right: 0;
+    color: black;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.jqueryTerminal > .scrollbar {
+    color: white;
+}
+
+.jqueryTerminal > input {
+    position: absolute;
+    border: 0 !important;
+    padding: 0;
+    margin: 0;
+    outline: none !important;
+    border-width: 0px !important;
+    outline-width: 0px !important;
+    width: 100% !important;
+}
+
+.jqueryTerminal a {
+    color: #FFBF00;
+}
