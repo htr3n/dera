@@ -1,5 +1,8 @@
 package dera.frontend.command;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DirtyCommandResponse {
 
     protected String type;

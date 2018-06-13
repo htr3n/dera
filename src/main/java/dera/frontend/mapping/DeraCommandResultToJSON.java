@@ -32,7 +32,6 @@ public class DeraCommandResultToJSON extends ObjectToJSON<CommandResponse> {
         final ObjectMapper mapper = new ObjectMapper();
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         mapper.configure(MapperFeature.USE_ANNOTATIONS, true);
-        mapper.configure(SerializationFeature.WRITE_NULL_MAP_VALUES, false);
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
         return mapper;

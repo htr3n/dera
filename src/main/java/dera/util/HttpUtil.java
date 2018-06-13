@@ -3,9 +3,10 @@ package dera.util;
 import org.apache.http.Consts;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.HttpHeaders;
@@ -24,8 +25,6 @@ public class HttpUtil {
     /**
      * Check if the input is a two-part content type, e.g., application/xml;charset=UTF-8
      *
-     * @param contentType
-     * @return
      */
     public static boolean isTwoPartContentType(String contentType) {
         return contentType != null && contentType.matches(contentTypeRegEx);
@@ -34,8 +33,6 @@ public class HttpUtil {
     /**
      * Get the first path of the two-part content type, e.g., application/xml;charset=UTF-8
      *
-     * @param contentType
-     * @return
      */
     public static String extractContentType(String contentType) {
         if (isTwoPartContentType(contentType)) {
@@ -63,9 +60,9 @@ public class HttpUtil {
         return encoding == null || encoding.isEmpty() ? Consts.UTF_8.toString() : encoding;
     }
 
-    public static final int postJSON(String content, String uri) throws Exception {
+    public static int postJSON(String content, String uri) throws Exception {
         if (TextUtil.neitherNullNorEmpty(content)) {
-            final DefaultHttpClient httpClient = new DefaultHttpClient();
+            final HttpClient httpClient = HttpClientBuilder.create().build();
             final HttpPost httpPost = new HttpPost(uri);
             httpPost.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
             httpPost.setEntity(new StringEntity(content));
@@ -78,9 +75,9 @@ public class HttpUtil {
         return -1;
     }
 
-    public static final int postXML(String content, String uri) throws Exception {
+    public static int postXML(String content, String uri) throws Exception {
         if (TextUtil.neitherNullNorEmpty(content)) {
-            final DefaultHttpClient httpClient = new DefaultHttpClient();
+            final HttpClient httpClient = HttpClientBuilder.create().build();
             final HttpPost httpPost = new HttpPost(uri);
             httpPost.addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_XML);
             httpPost.setEntity(new StringEntity(content));

@@ -4,8 +4,8 @@ import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.HttpClient;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLContexts;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
@@ -13,6 +13,7 @@ import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.nio.client.HttpAsyncClient;
 import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;
+import org.apache.http.ssl.SSLContexts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -92,17 +93,15 @@ public final class RESTClients {
 
     private static CloseableHttpClient createSyncHttpClient() {
         HttpClientBuilder builder = HttpClientBuilder.create();
-        CloseableHttpClient closeableHttpClient = builder.build();
-        return closeableHttpClient;
+        return builder.build();
     }
 
     private static CloseableHttpClient createSecureSyncHttpClient() {
         HttpClientBuilder builder = HttpClientBuilder.create();
         builder.setSSLSocketFactory(new SSLConnectionSocketFactory(
                 SSLContexts.createDefault(),
-                SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER));
-        CloseableHttpClient closeableHttpClient = builder.build();
-        return closeableHttpClient;
+                NoopHostnameVerifier.INSTANCE));
+        return builder.build();
     }
 
     private static CloseableHttpAsyncClient createAsyncHttpClient() {
@@ -115,7 +114,7 @@ public final class RESTClients {
         HttpAsyncClientBuilder builder = HttpAsyncClientBuilder.create();
         builder.setSSLStrategy(new SSLIOSessionStrategy(
                 SSLContexts.createDefault(),
-                SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER));
+                NoopHostnameVerifier.INSTANCE));
         final CloseableHttpAsyncClient httpAsyncClient = builder.build();
         httpAsyncClient.start();
         return httpAsyncClient;

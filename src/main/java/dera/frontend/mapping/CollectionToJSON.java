@@ -23,7 +23,7 @@ public class CollectionToJSON<T> extends ObjectToJSON<T> {
         if (module != null)
             mapper.registerModule(module);
         Writer stringWriter = new StringWriter();
-        ObjectWriter objectWriter = mapper.writerWithType(new TypeReference<Collection<T>>() {});
+        ObjectWriter objectWriter = mapper.writerFor(new TypeReference<Collection<T>>() {});
         objectWriter.writeValue(stringWriter, t);
         return mapper.writeValueAsString(t);
     }

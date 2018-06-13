@@ -1,12 +1,16 @@
 package dera.runtime;
 
-import dera.core.EventActor;
+import com.lmax.disruptor.EventFactory;
+import com.lmax.disruptor.EventHandler;
+import com.lmax.disruptor.RingBuffer;
+import com.lmax.disruptor.SleepingWaitStrategy;
+import com.lmax.disruptor.dsl.Disruptor;
+import com.lmax.disruptor.dsl.ProducerType;
 import dera.core.Event;
+import dera.core.EventActor;
 import dera.core.EventType;
 import dera.core.LifeCycle;
 import dera.util.TextUtil;
-import com.lmax.disruptor.*;
-import com.lmax.disruptor.dsl.Disruptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,11 +18,7 @@ import java.util.Set;
 
 public class EventChannel extends LifeCycle {
 
-    public static final EventFactory<ChannelItem> EVENT_FACTORY = new EventFactory<ChannelItem>() {
-        public ChannelItem newInstance() {
-            return new ChannelItem();
-        }
-    };
+    public static final EventFactory<ChannelItem> EVENT_FACTORY = () -> new ChannelItem();
     private static final Logger LOG = LoggerFactory.getLogger(EventChannel.class);
     private RingBuffer<ChannelItem> ringBuffer;
     private Disruptor<ChannelItem> disruptor;
@@ -56,12 +56,14 @@ public class EventChannel extends LifeCycle {
 
     public void start() {
         disruptor = new Disruptor<>(
-                EVENT_FACTORY,
+                ChannelItem::new,
+                domain.getConfiguration().getMaxChannelSize(),
                 domain.getDaemonExecutor(),
-                new MultiThreadedLowContentionClaimStrategy(domain.getConfiguration().getMaxChannelSize()),
+                ProducerType.SINGLE,
                 new SleepingWaitStrategy());
         disruptor.handleEventsWith(distributor);
-        ringBuffer = disruptor.start();
+        disruptor.start();
+        ringBuffer = disruptor.getRingBuffer();
         LOG.info("Started the event channel of the domain '{}' with size [{}]", new Object[]{domain.getId(), domain.getConfiguration().getMaxChannelSize()});
         switchState();
     }
