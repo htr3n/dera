@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>htr3n</groupId>
     <artifactId>dera</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>DERA</name>
@@ -14,17 +14,17 @@
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <disruptor.version>3.4.2</disruptor.version>
-        <groovy.version>2.4.15</groovy.version>
-        <guava.version>25.1-jre</guava.version>
-        <http.core.version>4.4.9</http.core.version>
-        <http.asyncclient.version>4.1.3</http.asyncclient.version>
-        <httpclient.version>4.5.5</httpclient.version>
-        <jackson.version>2.9.6</jackson.version>
+        <groovy.version>2.5.3</groovy.version>
+        <guava.version>27.0-jre</guava.version>
+        <http.core.version>4.4.10</http.core.version>
+        <http.asyncclient.version>4.1.4</http.asyncclient.version>
+        <httpclient.version>4.5.6</httpclient.version>
+        <jackson.version>2.9.7</jackson.version>
         <jersey.version>1.19.4</jersey.version>
-        <jetty.version>9.3.0.M1</jetty.version>
+        <jetty.version>9.4.12.v20180830</jetty.version>
         <joda-time.version>2.10</joda-time.version>
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
-        <junit.platform.version>1.2.0</junit.platform.version>
+        <junit.jupiter.version>5.3.1</junit.jupiter.version>
+        <junit.platform.version>1.3.1</junit.platform.version>
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
@@ -174,11 +174,6 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-jsp</artifactId>
             <version>${jetty.version}</version>
         </dependency>
         <dependency>
