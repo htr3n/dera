@@ -39,14 +39,14 @@ dependencies {
     compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version:'2.9.8'
     compile group: 'com.sun.jersey', name: 'jersey-server', version:'1.19.4'
     compile group: 'com.sun.jersey', name: 'jersey-servlet', version:'1.19.4'
-    compile(group: 'org.eclipse.jetty', name: 'jetty-server', version:'9.3.0.M1') {
+    compile(group: 'org.eclipse.jetty', name: 'jetty-server', version:'9.4.17.v20190418') {
         exclude(module: 'javax.servlet')
     }
-    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version:'9.4.14.v20181114'
-    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version:'9.4.14.v20181114'
-    compile group: 'org.eclipse.jetty', name: 'jetty-util', version:'9.4.14.v20181114'
-    compile group: 'org.eclipse.jetty', name: 'jetty-jsp', version:'9.4.14.v20181114'
-    compile group: 'org.eclipse.jetty.websocket', name: 'websocket-server', version:'9.4.14.v20181114'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version:'9.4.17.v20190418'
+    compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version:'9.4.17.v20190418'
+    compile group: 'org.eclipse.jetty', name: 'jetty-util', version:'9.4.17.v20190418'
+    compile group: 'org.eclipse.jetty', name: 'jetty-jsp', version:'9.4.17.v20190418'
+    compile group: 'org.eclipse.jetty.websocket', name: 'websocket-server', version:'9.4.17.v20190418'
     compile group: 'org.codehaus.groovy', name: 'groovy-all', version:'2.5.3'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version:'5.3.1'
 }
