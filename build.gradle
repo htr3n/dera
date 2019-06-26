@@ -32,11 +32,11 @@ dependencies {
     compile(group: 'org.apache.httpcomponents', name: 'httpasyncclient', version:'4.1.4') {
         exclude(module: 'commons-logging')
     }
-    compile group: 'joda-time', name: 'joda-time', version:'2.10.1'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.9.8'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.9.8'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.9.8'
-    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version:'2.9.8'
+    compile group: 'joda-time', name: 'joda-time', version:'2.10.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.9.9'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version:'2.9.9'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.9.9'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version:'2.9.9'
     compile group: 'com.sun.jersey', name: 'jersey-server', version:'1.19.4'
     compile group: 'com.sun.jersey', name: 'jersey-servlet', version:'1.19.4'
     compile(group: 'org.eclipse.jetty', name: 'jetty-server', version:'9.4.17.v20190418') {
