@@ -11,6 +11,7 @@ For a quick glance on how a DERA system works, you can jump to the folder `src/m
 #### Technical Details
 
 * DERA core has been implemented using pure Java and some [Google Guava](https://github.com/google/guava) collection helpers. 
-* DERA internal event exchanging is based on [LMAX-Exchange Disruptor](https://github.com/LMAX-Exchange/disruptor) - a lock-free high performance messenging library.
+* DERA internal event channels is based on [LMAX-Exchange Disruptor](https://github.com/LMAX-Exchange/disruptor) - a lock-free high performance messenging library.
+* Java threads and Executors (Bounded), semaphores, lock.
 * DERA interfaces (Web, REST, Web socket) have been developed using a lightweight embedded [Eclipse Jetty](https://www.eclipse.org/jetty/) server, [Jersey JAX-RS](https://jersey.github.io), Apache [HTTPClient](https://hc.apache.org/httpcomponents-client-4.5.x/index.html) and [HTTPAsyncClient](https://hc.apache.org/httpcomponents-asyncclient-ga/index.html) for handling HTTP/REST, [FasterXML's Jackson](https://github.com/FasterXML/jackson) for binding Java objects and JSON, and [Joda-Time](http://www.joda.org/joda-time) for date/time processing.
 
